@@ -4,7 +4,7 @@
   "description": "Chai, Istanbul, Karma, Mocha and Webpack testing boilerplate",
   "main": "index.js",
   "scripts": {
-    "test": "node ./node_modules/karma/bin/karma start --single-run"
+    "test": "node ./node_modules/karma/bin/karma start --single-run --browsers ChromeNoSandbox"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "bundle-loader": "^0.5.2",
     "chai": "^2.2.0",
     "gulp": "^3.8.11",
+    "karma": "^1.4.1",
     "istanbul": "^0.3.13",
     "istanbul-instrumenter-loader": "^0.1.2",
     "karma-chrome-launcher": "^2.0.0",

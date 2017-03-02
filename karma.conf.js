@@ -9,10 +9,21 @@ module.exports = function(config) {
         reporters: [
             'spec', 'coverage', 'junit'
         ],
-        coverageReporter: {
+        /*coverageReporter: {
             type: 'html',
             dir: 'build/coverage/'
+        },*/
+
+        coverageReporter: {
+            dir: 'build/coverage/',
+            includeAllSources: true,
+            reporters: [
+                {type: 'html'},
+                {type: 'text'},
+                {type: 'text-summary'}
+            ]
         },
+
         junitReporter: {
             outputDir: '.',
             outputFile: undefined,
@@ -57,6 +68,13 @@ module.exports = function(config) {
             require("karma-junit-reporter"),
             require("karma-chrome-launcher")
         ],
-        browsers: ['Chrome']
+        
+        browsers: ['ChromeNoSandbox'],
+        customLaunchers: {
+            ChromeNoSandbox: {
+                base: 'Chrome',
+                flags: ['--no-sandbox']
+            }
+        }
     });
 };
